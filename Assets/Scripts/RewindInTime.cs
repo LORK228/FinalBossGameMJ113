@@ -5,24 +5,27 @@ using UnityEngine;
 
 public class RewindInTime : MonoBehaviour
 {
-    [SerializeField] private int _maxRecord;
+    [SerializeField] private float _maxRecordSeconds;
     private bool startRewind = false;
-    private List<Vector3> positions;
+    private List<PointInTime> _pointsInTime;
+    Rigidbody rb;
     private void Start()
     {
-        positions = new List<Vector3>();
+        _pointsInTime = new List<PointInTime>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            print(1);
             startRewind = true;
+            rb.isKinematic = true;
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
             startRewind = false;
+            rb.isKinematic = false;
         }
     }
     private void FixedUpdate()
@@ -34,10 +37,12 @@ public class RewindInTime : MonoBehaviour
 
     private void Rewind()
     {
-        if(positions.Count > 0)
+        if(_pointsInTime.Count > 0)
         {
-            transform.position = positions[0];
-            positions.RemoveAt(0);
+            PointInTime pointInTime = _pointsInTime[0];
+            transform.position = pointInTime.position;
+            transform.rotation = pointInTime.rotation;
+            _pointsInTime.RemoveAt(0);
         }
         else
         {
@@ -47,14 +52,10 @@ public class RewindInTime : MonoBehaviour
 
     private void Record()
     {
-        if(positions.Count != _maxRecord)
+        if(_pointsInTime.Count > Math.Round(_maxRecordSeconds / Time.fixedDeltaTime))
         {
-            positions.Insert(0, transform.position);
+            _pointsInTime.RemoveAt(_pointsInTime.Count - 1);
         }
-        else 
-        {
-            positions.RemoveAt(positions.Count-1);
-        }
-        print(positions.Count);
+        _pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
     }
 }
