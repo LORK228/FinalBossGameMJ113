@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class RewindInTime : MonoBehaviour
 {
     [SerializeField] private float _maxRecordSeconds;
+    [SerializeField] private bool isPlayer;
     private bool startRewind = false;
     private List<PointInTime> _pointsInTime;
     Rigidbody rb;
+    RigidbodyFirstPersonController controller;
     private void Start()
     {
         _pointsInTime = new List<PointInTime>();
         rb = GetComponent<Rigidbody>();
+        if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
     }
 
     private void Update()
@@ -21,22 +25,18 @@ public class RewindInTime : MonoBehaviour
         {
             startRewind = true;
             rb.isKinematic = true;
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            startRewind = false;
-            rb.isKinematic = false;
+            if (isPlayer) controller.enabled = false;
         }
     }
     private void FixedUpdate()
     {
         if (startRewind) Rewind();
         else Record();
-        
     }
 
     private void Rewind()
     {
+        Time.timeScale = 3;
         if(_pointsInTime.Count > 0)
         {
             PointInTime pointInTime = _pointsInTime[0];
@@ -47,6 +47,7 @@ public class RewindInTime : MonoBehaviour
         else
         {
             startRewind = false;
+            rb.isKinematic = false;
         }
     }
 
