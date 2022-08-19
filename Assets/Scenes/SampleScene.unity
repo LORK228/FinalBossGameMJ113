@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,40 +251,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &291496428
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
-  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
-  m_ShaderKeywords: BOTTOM_STRETCH_ON
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SecondaryTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _NoiseBottomHeight: 0.237
-    - _NoiseBottomIntensity: 1.1
-    - _OffsetNoiseX: 0.33505112
-    - _OffsetNoiseY: 0.04492823
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &420518041
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +799,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &894346426
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
+  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _NoiseBottomHeight: 0.04
+    - _NoiseBottomIntensity: 1
+    - _OffsetNoiseX: 0
+    - _OffsetNoiseY: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1300934861
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1456,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1571190678
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
+  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _NoiseBottomHeight: 0.04
+    - _NoiseBottomIntensity: 1
+    - _OffsetNoiseX: 0
+    - _OffsetNoiseY: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
 --- !u!1 &1900984007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,10 +2030,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset._TV_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset.g_GlitchMat1
       value: 
       objectReference: {fileID: 690330217}
@@ -2008,21 +2038,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset._VHS_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset.o_oldfilm_mat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset.o_negative_mat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset._bottomNoiseMat
       value: 
-      objectReference: {fileID: 291496428}
+      objectReference: {fileID: 894346426}
+    - target: {fileID: 65753993, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+      propertyPath: force
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 6185714600796455164, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: m_Name
       value: RigidBodyFPSController
@@ -2070,6 +2092,18 @@ PrefabInstance:
     - target: {fileID: 6185714600796495064, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185714600802514206, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+      propertyPath: movementSettings.StrafeSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185714600802514206, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+      propertyPath: movementSettings.ForwardSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185714600802514206, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+      propertyPath: movementSettings.BackwardSpeed
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
