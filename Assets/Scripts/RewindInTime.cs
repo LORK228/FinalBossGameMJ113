@@ -31,7 +31,7 @@ public class RewindInTime : MonoBehaviour
 
     private void Update()
     {
-        if (isdead)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (isSecondCamera)
             {
