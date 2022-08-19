@@ -8,14 +8,17 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class RewindInTime : MonoBehaviour
 {
-    private float _maxRecordSeconds = 16;
+    
     [SerializeField] private bool isPlayer;
     [SerializeField] private bool isSecondCamera;
+
+    private float _maxRecordSeconds = 16;
     private bool startRewind = false;
     private List<PointInTime> _pointsInTime;
-    Rigidbody rb;
-    RigidbodyFirstPersonController controller;
-    SecondCameraMove second;
+    private Rigidbody rb;
+    private RigidbodyFirstPersonController controller;
+    private SecondCameraMove second;
+
     [HideInInspector] public bool isdead = false;
 
     private void Start()
