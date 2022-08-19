@@ -3,29 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class RewindInTime : MonoBehaviour
 {
-    [SerializeField] private float _maxRecordSeconds;
+    private float _maxRecordSeconds = 16;
     [SerializeField] private bool isPlayer;
+    [SerializeField] private bool isSecondCamera;
     private bool startRewind = false;
     private List<PointInTime> _pointsInTime;
     Rigidbody rb;
     RigidbodyFirstPersonController controller;
+    SecondCameraMove second;
+
     private void Start()
     {
+        if(isSecondCamera) second = GetComponent<SecondCameraMove>();
+        if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
         _pointsInTime = new List<PointInTime>();
         rb = GetComponent<Rigidbody>();
-        if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            if (isSecondCamera)
+            {
+                Destroy(second.firstCamera.gameObject);
+                Destroy(second);
+                GetComponent<AudioListener>().enabled = true;
+                GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(0.9f,1);
+                GetComponent<AudioSource>().Play();
+            }
             startRewind = true;
-            rb.isKinematic = true;
-            if (isPlayer) controller.enabled = false;
+            if (!isSecondCamera) rb.isKinematic = true;
+            if (isPlayer) Destroy(controller);
         }
     }
     private void FixedUpdate()
@@ -36,7 +50,8 @@ public class RewindInTime : MonoBehaviour
 
     private void Rewind()
     {
-        Time.timeScale = 3;
+        
+        Time.timeScale += 0.002f;
         if(_pointsInTime.Count > 0)
         {
             PointInTime pointInTime = _pointsInTime[0];
@@ -47,7 +62,9 @@ public class RewindInTime : MonoBehaviour
         else
         {
             startRewind = false;
-            rb.isKinematic = false;
+            if (!isSecondCamera) rb.isKinematic = false;
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

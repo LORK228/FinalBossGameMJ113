@@ -6,13 +6,7 @@ public class TimeControl : MonoBehaviour
 {
     private float slowdown= 0.02f;
     private float Duration= 2f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
