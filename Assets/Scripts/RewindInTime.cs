@@ -16,6 +16,7 @@ public class RewindInTime : MonoBehaviour
     Rigidbody rb;
     RigidbodyFirstPersonController controller;
     SecondCameraMove second;
+    [HideInInspector] public bool isdead = false;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class RewindInTime : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (isdead)
         {
             if (isSecondCamera)
             {
@@ -37,9 +38,11 @@ public class RewindInTime : MonoBehaviour
                 GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(0.9f,1);
                 GetComponent<AudioSource>().Play();
             }
-            startRewind = true;
-            if (!isSecondCamera) rb.isKinematic = true;
+            else rb.isKinematic = true;
+
             if (isPlayer) Destroy(controller);
+
+            startRewind = true;
         }
     }
     private void FixedUpdate()
