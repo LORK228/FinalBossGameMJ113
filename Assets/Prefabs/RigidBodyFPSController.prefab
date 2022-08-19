@@ -592,9 +592,9 @@ MonoBehaviour:
   cam: {fileID: 6185714600797045466}
   movementSettings:
     ForwardSpeed: 8
-    BackwardSpeed: 4
-    StrafeSpeed: 4
-    RunMultiplier: 2
+    BackwardSpeed: 8
+    StrafeSpeed: 8
+    RunMultiplier: 1
     RunKey: 304
     JumpForce: 50
     SlopeCurveModifier:
@@ -673,6 +673,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72baeca73fb70134e947a1b09f2a8640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodge: 0
+  force: 60
+  time: 1
 --- !u!1 &6185714600796455166
 GameObject:
   m_ObjectHideFlags: 0
