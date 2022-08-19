@@ -14,7 +14,7 @@ public class RewindInTime : MonoBehaviour
 
     private float _maxRecordSeconds = 16;
     private bool startRewind = false;
-    private List<PointInTime> _pointsInTime;
+    private LinkedList<PointInTime> _pointsInTime;
     private Rigidbody rb;
     private RigidbodyFirstPersonController controller;
     private SecondCameraMove second;
@@ -25,7 +25,7 @@ public class RewindInTime : MonoBehaviour
     {
         if(isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
-        _pointsInTime = new List<PointInTime>();
+        _pointsInTime = new LinkedList<PointInTime>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -60,10 +60,10 @@ public class RewindInTime : MonoBehaviour
         Time.timeScale += 0.002f;
         if(_pointsInTime.Count > 0)
         {
-            PointInTime pointInTime = _pointsInTime[0];
+            PointInTime pointInTime = _pointsInTime.First.Value;
             transform.position = pointInTime.position;
             transform.rotation = pointInTime.rotation;
-            _pointsInTime.RemoveAt(0);
+            _pointsInTime.RemoveFirst();
         }
         else
         {
@@ -78,8 +78,8 @@ public class RewindInTime : MonoBehaviour
     {
         if(_pointsInTime.Count > Math.Round(_maxRecordSeconds / Time.fixedDeltaTime))
         {
-            _pointsInTime.RemoveAt(_pointsInTime.Count - 1);
+            _pointsInTime.RemoveLast();
         }
-        _pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation));
+        _pointsInTime.AddFirst(new PointInTime(transform.position, transform.rotation));
     }
 }
