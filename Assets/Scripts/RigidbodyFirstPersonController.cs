@@ -134,6 +134,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (CrossPlatformInputManager.GetButtonDown("Jump") && !m_Jump)
             {
                 m_Jump = true;
+                _dodge.InAir = true;
             }
         }
 
@@ -162,6 +163,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (m_IsGrounded && _dodge.dodge==false)
             {
                 m_RigidBody.drag = 5f;
+                _dodge.InAir = false;
 
                 if (m_Jump)
                 {
@@ -169,11 +171,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
                     m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
                     m_Jumping = true;
+                    _dodge.InAir = true;
                 }
 
                 if (!m_Jumping && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon && m_RigidBody.velocity.magnitude < 1f)
                 {
                     m_RigidBody.Sleep();
+                    _dodge.InAir = true;
                 }
             }
             else

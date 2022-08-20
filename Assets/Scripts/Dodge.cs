@@ -12,6 +12,8 @@ public class Dodge: MonoBehaviour
     public int force;
     private GameObject camera;
     private Vector3 MoveTo;
+    private Animator ArmSwing;
+    [HideInInspector] public bool InAir;
     [HideInInspector] public bool dodge = false;
     [SerializeField] private Image DodgeTimer;
     [SerializeField] private float time;
@@ -21,18 +23,31 @@ public class Dodge: MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         camera = GetComponentsInChildren<Camera>()[0].gameObject;
-        print(GetComponentsInChildren<Camera>()[0].gameObject.name);
         MoveTo = new Vector3(0f, 0f, 0f);
+        ArmSwing = GetComponentInChildren<Animator>();
+        print(GetComponentInChildren<Animator>().gameObject.name);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            
+            switch (Mathf.RoundToInt(Random.Range(1f, 4f))){
+                case 1: ArmSwing.SetTrigger("Attack1");
+                    break;
+                case 2: ArmSwing.SetTrigger("Attack2");
+                    break;
+                case 3: ArmSwing.SetTrigger("Attack3");
+                    break;
+            }
+        }
+        print(InAir);
         if (_timeLeft < time)
         {
             _timeLeft += Time.deltaTime;
             DodgeTimer.fillAmount = Mathf.Clamp(_timeLeft/time, 0f, 1f);
-            print(Mathf.Clamp(time / _timeLeft, 0f, 1f));
         }
         else
         {
@@ -47,7 +62,7 @@ public class Dodge: MonoBehaviour
                     MoveTo = new Vector3(0f, 0.6f, 0f);
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.E) && dodge == false)
+            else if (Input.GetKeyDown(KeyCode.E) && dodge == false && InAir == false)
             {
                 Time.timeScale = slowdown;
                 Time.fixedDeltaTime = Time.timeScale * 0.2f;
@@ -56,7 +71,7 @@ public class Dodge: MonoBehaviour
                 rigidbody.AddForce(gameObject.transform.right * force, ForceMode.VelocityChange);
                 dodge = true;
             }
-            else if (Input.GetKeyDown(KeyCode.Q) && dodge == false)
+            else if (Input.GetKeyDown(KeyCode.Q) && dodge == false && InAir == false)
             {
                 Time.timeScale = slowdown;
                 Time.fixedDeltaTime = Time.timeScale * 0.2f;
@@ -76,5 +91,6 @@ public class Dodge: MonoBehaviour
                 
             }
         }
+ 
     }
 }
