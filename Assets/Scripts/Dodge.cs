@@ -67,7 +67,7 @@ public class Dodge: MonoBehaviour
                 Time.timeScale = slowdown;
                 Time.fixedDeltaTime = Time.timeScale * 0.2f;
                 rigidbody.drag = 0f;
-                rigidbody.velocity = gameObject.transform.right;
+                rigidbody.AddForce(gameObject.transform.right*5, ForceMode.VelocityChange);
                 rigidbody.AddForce(gameObject.transform.right * force, ForceMode.VelocityChange);
                 dodge = true;
             }
@@ -76,7 +76,7 @@ public class Dodge: MonoBehaviour
                 Time.timeScale = slowdown;
                 Time.fixedDeltaTime = Time.timeScale * 0.2f;
                 rigidbody.drag = 0f;
-                rigidbody.velocity = -gameObject.transform.right;
+                rigidbody.AddForce(-gameObject.transform.right*5, ForceMode.VelocityChange);
                 rigidbody.AddForce(-gameObject.transform.right * force, ForceMode.VelocityChange);
                 dodge = true;
             }
