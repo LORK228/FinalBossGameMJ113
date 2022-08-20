@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Dodge: MonoBehaviour
 {
     private float slowdown= 0.02f;
     private float Duration = 0.01f;
-    public bool dodge = false;
+    [HideInInspector] public bool dodge = false;
+    [SerializeField] private Image DodgeTimer;
     private Rigidbody rigidbody;
     public int force;
     [SerializeField] private float time;
@@ -20,18 +22,19 @@ public class Dodge: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_timeLeft > 0)
+        if (_timeLeft < time)
         {
-            _timeLeft -= Time.deltaTime;
+            _timeLeft += Time.deltaTime;
+            DodgeTimer.fillAmount = Mathf.Clamp(_timeLeft/time, 0f, 1f);
+            print(Mathf.Clamp(time / _timeLeft, 0f, 1f));
         }
         else
         {
             if (Time.timeScale < 1f && Time.timeScale !=0)
             {
                 rigidbody.drag = 0f;
-                Time.timeScale += (1f / Duration) * Time.unscaledDeltaTime;
-                Time.timeScale = Mathf.Clamp(Time.timeScale,0f, 1f);
-                print(Time.timeScale);
+                Time.timeScale += (1f / Duration) * Time.deltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
             }
             else if (Input.GetKeyDown(KeyCode.E) && dodge == false)
             {
@@ -55,7 +58,7 @@ public class Dodge: MonoBehaviour
             {
                 if (dodge == true)
                 {
-                    _timeLeft = time;
+                    _timeLeft = 0;
                 }
                 dodge = false;
                 rigidbody.drag = 5f;

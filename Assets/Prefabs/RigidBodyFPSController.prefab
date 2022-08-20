@@ -521,9 +521,10 @@ GameObject:
   - component: {fileID: 6185714600802514206}
   - component: {fileID: 65753981}
   - component: {fileID: 65753993}
+  - component: {fileID: 1808444633}
   m_Layer: 3
   m_Name: RigidBodyFPSController
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +644,6 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
-  _dodge: {fileID: 65753993}
 --- !u!114 &65753981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,8 +669,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dodge: 0
+  DodgeTimer: {fileID: 0}
   force: 60
   time: 1
+--- !u!114 &1808444633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185714600796455164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9851e5f27a5a9934faae30249e619755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healValue: 100
 --- !u!1 &6185714600796455166
 GameObject:
   m_ObjectHideFlags: 0
