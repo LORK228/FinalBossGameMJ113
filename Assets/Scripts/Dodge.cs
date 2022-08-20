@@ -30,6 +30,7 @@ public class Dodge: MonoBehaviour
             {
                 rigidbody.drag = 0f;
                 Time.timeScale += (1f / Duration) * Time.unscaledDeltaTime;
+                Time.timeScale = Mathf.Clamp(Time.timeScale,0f, 1f);
                 print(Time.timeScale);
             }
             else if (Input.GetKeyDown(KeyCode.E) && dodge == false)
