@@ -11,13 +11,13 @@ public class RewindInTime : MonoBehaviour
     private bool isPlayer => gameObject.GetComponent<Dodge>() != null;
     private bool isSecondCamera => gameObject.GetComponent<Camera>() != null;
 
-    private float _maxRecordSeconds = 10;
+    private float _maxRecordSeconds = 8;
     private bool startRewind = false;
     private LinkedList<PointInTime> _pointsInTime;
     private Rigidbody rb;
     private RigidbodyFirstPersonController controller;
     private SecondCameraMove second;
-    private float speedColor = 1.95f;
+    private float speedColor = 1.4f;
     private ColorGrading color;
 
 
@@ -31,7 +31,7 @@ public class RewindInTime : MonoBehaviour
     private void Start()
     {
         if(isSecondCamera)
-        GameObject.Find("PostProccesingVolume").GetComponent<PostProcessVolume>().profile.TryGetSettings(out color);
+        GameObject.Find("PostProccesingVolumeForRewind").GetComponent<PostProcessVolume>().profile.TryGetSettings(out color);
         if (isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
         _pointsInTime = new LinkedList<PointInTime>();
@@ -41,9 +41,9 @@ public class RewindInTime : MonoBehaviour
     private void Update()
     {
 
-        if (isdead)
+        if (isdead && startRewind == false)
         {
-            if (isSecondCamera)
+            if (isSecondCamera) 
             {
                 Destroy(second.firstCamera.gameObject);
                 Destroy(second);
@@ -74,7 +74,7 @@ public class RewindInTime : MonoBehaviour
             color.postExposure.value += Time.fixedDeltaTime / speedColor;
         }
             
-        if (Time.timeScale <= 2.5f)
+        if (Time.timeScale <= 2.55f)
             Time.timeScale += 0.02f;
         if(_pointsInTime.Count > 0)
         {
