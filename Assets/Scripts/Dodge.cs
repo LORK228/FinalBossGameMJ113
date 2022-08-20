@@ -7,16 +7,22 @@ public class Dodge: MonoBehaviour
 {
     private float slowdown= 0.02f;
     private float Duration = 0.01f;
-    [HideInInspector] public bool dodge = false;
-    [SerializeField] private Image DodgeTimer;
+    private float _timeLeft = 0f;
     private Rigidbody rigidbody;
     public int force;
+    private GameObject camera;
+    private Vector3 MoveTo;
+    [HideInInspector] public bool dodge = false;
+    [SerializeField] private Image DodgeTimer;
     [SerializeField] private float time;
-    private float _timeLeft = 0f;
+    
     // Start is called before the first frame update
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        camera = GetComponentsInChildren<Camera>()[0].gameObject;
+        print(GetComponentsInChildren<Camera>()[0].gameObject.name);
+        MoveTo = new Vector3(0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -32,9 +38,14 @@ public class Dodge: MonoBehaviour
         {
             if (Time.timeScale < 1f && Time.timeScale !=0)
             {
+                camera.transform.position = Vector3.MoveTowards(camera.transform.position, MoveTo, 0.001f);
                 rigidbody.drag = 0f;
                 Time.timeScale += (1f / Duration) * Time.deltaTime;
                 Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
+                if(Vector3.Distance(camera.transform.position, MoveTo) < 0.001f)
+                {
+                    MoveTo = new Vector3(0f, 0.6f, 0f);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.E) && dodge == false)
             {
