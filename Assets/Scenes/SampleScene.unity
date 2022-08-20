@@ -529,7 +529,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - T: 16.823885
+    - T: 27.194086
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &705507993
@@ -948,40 +948,6 @@ Transform:
   m_Father: {fileID: 1675439133}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1004466735
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
-  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
-  m_ShaderKeywords: BOTTOM_STRETCH_ON
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SecondaryTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _NoiseBottomHeight: 0.237
-    - _NoiseBottomIntensity: 1.1
-    - _OffsetNoiseX: 0.332511
-    - _OffsetNoiseY: 0.017203033
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &1116688532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,7 +989,7 @@ Transform:
   m_Father: {fileID: 619827457}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1216309814
+--- !u!21 &1159478735
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1053,8 +1019,8 @@ Material:
     m_Floats:
     - _NoiseBottomHeight: 0.237
     - _NoiseBottomIntensity: 1.1
-    - _OffsetNoiseX: 0.572488
-    - _OffsetNoiseY: -0.049438387
+    - _OffsetNoiseX: 0.99903
+    - _OffsetNoiseY: -0.091500685
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &1300934861
@@ -1996,17 +1962,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1808444633 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 65753993, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-  m_PrefabInstance: {fileID: 6185714600781075328}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72baeca73fb70134e947a1b09f2a8640, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1900984007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2514,30 +2469,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -746935723630399209, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_Mass
-      value: 0.0000001
-      objectReference: {fileID: 0}
-    - target: {fileID: -746935723630399209, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -746935723630399209, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -746935723630399209, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761073, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761073, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset.m_1
       value: 
@@ -2559,10 +2490,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset._TV_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset.g_GlitchMat1
       value: 
       objectReference: {fileID: 690330217}
@@ -2571,48 +2498,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset._VHS_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset.o_oldfilm_mat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: tempPreset.o_negative_mat
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset._bottomNoiseMat
       value: 
-      objectReference: {fileID: 1004466735}
-    - target: {fileID: 14761078, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: antialiasingMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761078, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: finalBlitToCameraTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 14761081, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 24300002, guid: 4bcf226b69e3a1341ad5c1118568c7e9, type: 2}
+      objectReference: {fileID: 1159478735}
     - target: {fileID: 6185714600796455164, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: m_Name
       value: RigidBodyFPSController
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185714600796455164, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185714600796455164, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185714600796455166, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6185714600796495064, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: m_RootOrder
@@ -2658,9 +2549,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6185714600802514206, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
-      propertyPath: _dodge
-      value: 
-      objectReference: {fileID: 1808444633}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
