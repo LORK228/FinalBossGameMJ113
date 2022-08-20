@@ -245,8 +245,8 @@ Transform:
   m_LocalPosition: {x: 3.617176, y: -1.2482724, z: 1.6999335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 9
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420518041
 GameObject:
@@ -370,8 +370,8 @@ Transform:
   m_LocalPosition: {x: 3.617176, y: -1.2482724, z: 9.689934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 4
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &619827456
 GameObject:
@@ -401,18 +401,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1520196704}
-  - {fileID: 1342998210}
   - {fileID: 1516934074}
-  - {fileID: 861084092}
-  - {fileID: 420518047}
-  - {fileID: 2123540442}
-  - {fileID: 797486546}
-  - {fileID: 1419106486}
-  - {fileID: 1900984013}
-  - {fileID: 56672746}
-  - {fileID: 2017890714}
-  - {fileID: 2021033220}
-  - {fileID: 1421488195}
+  - {fileID: 1116688533}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,7 +529,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - T: 38.996937
+    - T: 16.823885
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &705507993
@@ -757,8 +747,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -1.2482724, z: 14.37398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 6
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &819389391
 GameObject:
@@ -790,40 +780,6 @@ Transform:
   m_Father: {fileID: 1330784444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &841349195
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
-  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
-  m_ShaderKeywords: BOTTOM_STRETCH_ON
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SecondaryTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats:
-    - _NoiseBottomHeight: 0.237
-    - _NoiseBottomIntensity: 1.1
-    - _OffsetNoiseX: 0.16375864
-    - _OffsetNoiseY: 0.715694
-    m_Colors: []
-  m_BuildTextureStacks: []
 --- !u!1 &861084086
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,8 +902,8 @@ Transform:
   m_LocalPosition: {x: 3.617176, y: -4.2982726, z: 9.689934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 3
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &893804723
 GameObject:
@@ -992,7 +948,7 @@ Transform:
   m_Father: {fileID: 1675439133}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &924590809
+--- !u!21 &1004466735
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -1022,8 +978,83 @@ Material:
     m_Floats:
     - _NoiseBottomHeight: 0.237
     - _NoiseBottomIntensity: 1.1
-    - _OffsetNoiseX: 0.057839394
-    - _OffsetNoiseY: 0.36457443
+    - _OffsetNoiseX: 0.332511
+    - _OffsetNoiseY: 0.017203033
+    m_Colors: []
+  m_BuildTextureStacks: []
+--- !u!1 &1116688532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1116688533}
+  m_Layer: 0
+  m_Name: ObjectsWhatCanRewindInTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1116688533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1116688532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1342998210}
+  - {fileID: 861084092}
+  - {fileID: 420518047}
+  - {fileID: 2123540442}
+  - {fileID: 797486546}
+  - {fileID: 1419106486}
+  - {fileID: 1900984013}
+  - {fileID: 56672746}
+  - {fileID: 2017890714}
+  - {fileID: 2021033220}
+  - {fileID: 1421488195}
+  m_Father: {fileID: 619827457}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &1216309814
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RetroLookPro/Legacy/BottomNoiseEffect
+  m_Shader: {fileID: 4800000, guid: 79eae988a995a46f78634203ac0a8bb0, type: 3}
+  m_ShaderKeywords: BOTTOM_STRETCH_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _NoiseBottomHeight: 0.237
+    - _NoiseBottomIntensity: 1.1
+    - _OffsetNoiseX: 0.572488
+    - _OffsetNoiseY: -0.049438387
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!1 &1300934861
@@ -1413,8 +1444,8 @@ Transform:
   m_LocalPosition: {x: 1.407177, y: -4.2982726, z: 9.689934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 1
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1342998211
 MonoBehaviour:
@@ -1550,8 +1581,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -4.7682724, z: 14.37398}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 7
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421488189
 GameObject:
@@ -1675,8 +1706,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -4.7682724, z: 6.3839793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 12
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1516934070
 GameObject:
@@ -1771,7 +1802,7 @@ Transform:
   m_LocalScale: {x: 11.518, y: 18.392, z: 3.7}
   m_Children: []
   m_Father: {fileID: 619827457}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1520196700
 GameObject:
@@ -1965,6 +1996,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1808444633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 65753993, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+  m_PrefabInstance: {fileID: 6185714600781075328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72baeca73fb70134e947a1b09f2a8640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1900984007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2087,8 +2129,8 @@ Transform:
   m_LocalPosition: {x: 3.617176, y: -4.2982726, z: 1.6999335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 8
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017890708
 GameObject:
@@ -2212,8 +2254,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -1.2482724, z: 1.6999335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 10
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2021033214
 GameObject:
@@ -2337,8 +2379,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -1.2482724, z: 6.383979}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 11
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2123540436
 GameObject:
@@ -2462,8 +2504,8 @@ Transform:
   m_LocalPosition: {x: 0.16717625, y: -1.2482724, z: 9.689934}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 619827457}
-  m_RootOrder: 5
+  m_Father: {fileID: 1116688533}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6185714600781075328
 PrefabInstance:
@@ -2543,7 +2585,7 @@ PrefabInstance:
     - target: {fileID: 14761075, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: tempPreset._bottomNoiseMat
       value: 
-      objectReference: {fileID: 841349195}
+      objectReference: {fileID: 1004466735}
     - target: {fileID: 14761078, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
       propertyPath: antialiasingMode
       value: 0
@@ -2616,5 +2658,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6185714600802514206, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}
+      propertyPath: _dodge
+      value: 
+      objectReference: {fileID: 1808444633}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b80d932cc6e1c548950384787f4dff8, type: 3}

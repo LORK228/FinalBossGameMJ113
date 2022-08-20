@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 14761080}
   - component: {fileID: 14761079}
   - component: {fileID: 14761081}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RewindCamera
-  m_TagString: CanReturnInTime
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -411,9 +411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f415a7846565a94d96be66eed9c5d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 0
-  isSecondCamera: 1
-  isdead: 0
 --- !u!82 &14761081
 AudioSource:
   m_ObjectHideFlags: 0
@@ -423,7 +420,7 @@ AudioSource:
   m_GameObject: {fileID: 14761073}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4bcf226b69e3a1341ad5c1118568c7e9, type: 2}
   m_audioClip: {fileID: 8300000, guid: e02c9b1c162bbd6439ca524f17b61152, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -524,9 +521,9 @@ GameObject:
   - component: {fileID: 6185714600802514206}
   - component: {fileID: 65753981}
   - component: {fileID: 65753993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RigidBodyFPSController
-  m_TagString: CanReturnInTime
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,6 +643,7 @@ MonoBehaviour:
     slowDownRate: 20
     airControl: 0
     shellOffset: 0
+  _dodge: {fileID: 65753993}
 --- !u!114 &65753981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,9 +656,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f415a7846565a94d96be66eed9c5d18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 1
-  isSecondCamera: 0
-  isdead: 0
 --- !u!114 &65753993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,7 +684,7 @@ GameObject:
   - component: {fileID: 6185714600790564602}
   - component: {fileID: 6185714600802514204}
   - component: {fileID: 6185714600803522706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
