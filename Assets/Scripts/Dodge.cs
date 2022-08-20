@@ -7,7 +7,7 @@ public class Dodge: MonoBehaviour
     private float slowdown= 0.02f;
     private float Duration = 0.01f;
     public bool dodge = false;
-    Rigidbody rigidbody;
+    private Rigidbody rigidbody;
     public int force;
     [SerializeField] private float time;
     private float _timeLeft = 0f;

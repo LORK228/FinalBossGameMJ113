@@ -1,16 +1,14 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.SceneManagement;
-using UnityEngine.Rendering.PostProcessing;
 
 public class RewindInTime : MonoBehaviour
 {
     
-    [SerializeField] private bool isPlayer;
-    [SerializeField] private bool isSecondCamera;
+    private bool isPlayer => gameObject.GetComponent<Dodge>() != null;
+    private bool isSecondCamera => gameObject.GetComponent<Camera>() != null;
 
     private float _maxRecordSeconds = 16;
     private bool startRewind = false;
@@ -19,11 +17,16 @@ public class RewindInTime : MonoBehaviour
     private RigidbodyFirstPersonController controller;
     private SecondCameraMove second;
 
-    [HideInInspector] public bool isdead = false;
+    [HideInInspector] public bool isdead { private get; set; }
+
+    private void Awake()
+    {
+        gameObject.tag = "CanReturnInTime";
+    }
 
     private void Start()
     {
-        if(isSecondCamera) second = GetComponent<SecondCameraMove>();
+        if (isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
         _pointsInTime = new LinkedList<PointInTime>();
         rb = GetComponent<Rigidbody>();
