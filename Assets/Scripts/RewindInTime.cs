@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class RewindInTime : MonoBehaviour
 {
@@ -10,12 +11,15 @@ public class RewindInTime : MonoBehaviour
     private bool isPlayer => gameObject.GetComponent<Dodge>() != null;
     private bool isSecondCamera => gameObject.GetComponent<Camera>() != null;
 
-    private float _maxRecordSeconds = 16;
+    private float _maxRecordSeconds = 10;
     private bool startRewind = false;
     private LinkedList<PointInTime> _pointsInTime;
     private Rigidbody rb;
     private RigidbodyFirstPersonController controller;
     private SecondCameraMove second;
+    private float speedColor = 1.95f;
+    private ColorGrading color;
+
 
     [HideInInspector] public bool isdead { private get; set; }
 
@@ -26,6 +30,8 @@ public class RewindInTime : MonoBehaviour
 
     private void Start()
     {
+        if(isSecondCamera)
+        GameObject.Find("PostProccesingVolume").GetComponent<PostProcessVolume>().profile.TryGetSettings(out color);
         if (isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
         _pointsInTime = new LinkedList<PointInTime>();
@@ -34,6 +40,7 @@ public class RewindInTime : MonoBehaviour
 
     private void Update()
     {
+
         if (isdead)
         {
             if (isSecondCamera)
@@ -54,13 +61,21 @@ public class RewindInTime : MonoBehaviour
     private void FixedUpdate()
     {
         if (startRewind) Rewind();
-        else Record();
+        else 
+        {
+            Record();
+        }
     }
 
     private void Rewind()
     {
-        
-        Time.timeScale += 0.002f;
+        if (isSecondCamera)
+        {
+            color.postExposure.value += Time.fixedDeltaTime / speedColor;
+        }
+            
+        if (Time.timeScale <= 2.5f)
+            Time.timeScale += 0.02f;
         if(_pointsInTime.Count > 0)
         {
             PointInTime pointInTime = _pointsInTime.First.Value;

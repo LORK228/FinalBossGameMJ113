@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [HideInInspector] public bool isDo { private get; set; }
+    [HideInInspector] public bool isDo { get; set; }
     private GameObject[] rewindInTimesObjects;
     private List<RewindInTime> rewindInTimes;
 

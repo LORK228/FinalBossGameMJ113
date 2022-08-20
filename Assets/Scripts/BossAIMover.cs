@@ -18,23 +18,27 @@ public class BossAIMover : MonoBehaviour
     public GameObject GameOverTime;
     private DateTime TimeWhenStartGame;
     private DateTime TimeWhenEndGame;
+    private TimeManager killPlayer;
 
     void Start()
     {
         TimeWhenStartGame = DateTime.Now;
         player = GameObject.Find("Player");
         navMeshBoss = GetComponent<NavMeshAgent>();
+        killPlayer = GameObject.Find("TimeManager").GetComponent<TimeManager>();
     }
     void Update()
     {
-        if(healValue <= 0 && Time.timeScale != 0)
+        if(healValue <= 0 && Time.timeScale != 0 && killPlayer.isDo == false)
         {
             EndOfTheGame();
         }
         if (Time.timeScale == 0 && Input.GetKeyDown(KeyCode.R))
         {
             Time.timeScale = 1;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameOverText.SetActive(false);
+            GameOverTime.SetActive(false);
+            killPlayer.isDo = true;
         }
 
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -51,7 +55,7 @@ public class BossAIMover : MonoBehaviour
         TimeWhenEndGame = DateTime.Now;
         GameOverText.SetActive(true);
         GameOverTime.SetActive(true);
-        GameOverTime.GetComponent<TextMeshProUGUI>().text = $"You were able to defeat the boss in: \n{TimeWhenEndGame.Minute - TimeWhenStartGame.Minute} minute & {TimeWhenEndGame.Second - TimeWhenStartGame.Second} seconds";
+        GameOverTime.GetComponent<TextMeshProUGUI>().text = $"You were able to defeat the boss in: \n{(TimeWhenEndGame - TimeWhenStartGame).Minutes} minutes & {(TimeWhenEndGame - TimeWhenStartGame).Seconds} seconds";
     }
 
     private void distantAttack()
