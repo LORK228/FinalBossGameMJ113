@@ -13,6 +13,8 @@ public class Dodge: MonoBehaviour
     private GameObject camera;
     private Vector3 MoveTo;
     private Animator ArmSwing;
+    private float timer;
+    public float MaxTime;
     [HideInInspector] public bool InAir;
     [HideInInspector] public bool dodge = false;
     [SerializeField] private Image DodgeTimer;
@@ -31,16 +33,29 @@ public class Dodge: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        timer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Mouse0) && timer >= MaxTime)
         {
             
-            switch (Mathf.RoundToInt(Random.Range(1f, 4f))){
-                case 1: ArmSwing.SetTrigger("Attack1");
-                    break;
-                case 2: ArmSwing.SetTrigger("Attack2");
-                    break;
-                case 3: ArmSwing.SetTrigger("Attack3");
-                    break;
+            switch (Random.Range(0, 4)){
+                case 1:
+                    {
+                        ArmSwing.SetTrigger("Attack1");
+                        timer = 0;
+                        break;
+                    } 
+                case 2:
+                    {
+                        ArmSwing.SetTrigger("Attack2");
+                        timer = 0;
+                        break;
+                    }
+                case 3:
+                    {
+                        ArmSwing.SetTrigger("Attack3");
+                        timer = 0;
+                        break;
+                    }
             }
         }
         if (_timeLeft < time)

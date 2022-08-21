@@ -71,7 +71,7 @@ MonoBehaviour:
     f_show_Bypass: 0
     f_show_TV_mode: 0
     f_show_Old_TV_mode: 0
-    f_show_Bottom_Noise_mode: 1
+    f_show_Bottom_Noise_mode: 0
     f_show_Glitch_Effects: 1
     o_Enable_negative_props: 0
     o_Enable_Old_TV_effects: 0
