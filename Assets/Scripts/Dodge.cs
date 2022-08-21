@@ -25,7 +25,7 @@ public class Dodge: MonoBehaviour
         camera = GetComponentsInChildren<Camera>()[0].gameObject;
         MoveTo = new Vector3(0f, 0f, 0f);
         ArmSwing = GetComponentInChildren<Animator>();
-        print(GetComponentInChildren<Animator>().gameObject.name);
+
     }
 
     // Update is called once per frame
@@ -43,7 +43,6 @@ public class Dodge: MonoBehaviour
                     break;
             }
         }
-        print(InAir);
         if (_timeLeft < time)
         {
             _timeLeft += Time.deltaTime;

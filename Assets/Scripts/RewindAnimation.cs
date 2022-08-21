@@ -24,17 +24,17 @@ public class RewindAnimation : MonoBehaviour
         {
             if (firstAnimation)
             {
-                secondAndNames.First.Value.Seconds = secondAndNames.First.Next.Value.Seconds;
-                var next = secondAndNames.First.Next;
-                for (int i = 1; i < secondAndNames.Count; i++)
+                secondAndNames.Last.Value.Seconds = secondAndNames.Last.Previous.Value.Seconds;
+                var previous = secondAndNames.Last.Previous;
+                for (int i = secondAndNames.Count-1; ; i--)
                 {
-                    if(next.Next == null)
+                    if(previous.Previous == null)
                     {
-                        next.Value.Seconds = 0;
-                        continue;
+                        previous.Value.Seconds = 0;
+                        break;
                     }
-                    next.Value.Seconds = next.Next.Value.Seconds;
-                    next = next.Next;
+                    previous.Value.Seconds = previous.Previous.Value.Seconds;
+                    previous = previous.Previous;
                 }
             }
             timer += Time.deltaTime;
@@ -50,8 +50,11 @@ public class RewindAnimation : MonoBehaviour
             float seconds = pointInTime.Seconds;
             if(timer >= seconds / Time.timeScale)
             {
-                animator.speed = animator.speed * (-1);
+                animator.SetFloat("speed", -1);
+                
                 animator.Play(pointInTime.NameOfAnimation);
+                print(pointInTime.NameOfAnimation+" "+pointInTime.Seconds);
+                
                 secondAndNames.RemoveFirst();
                 timer = 0;
                 if(firstAnimation)

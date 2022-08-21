@@ -30,7 +30,8 @@ public class RewindInTime : MonoBehaviour
 
     private void Start()
     {
-        if(isSecondCamera)
+        Time.timeScale = 1;
+        if (isSecondCamera)
         GameObject.Find("PostProccesingVolumeForRewind").GetComponent<PostProcessVolume>().profile.TryGetSettings(out color);
         if (isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
@@ -44,7 +45,7 @@ public class RewindInTime : MonoBehaviour
 
         if (isdead && startRewind == false)
         {
-            if (isSecondCamera) 
+            if (isSecondCamera)
             {
                 Destroy(second.firstCamera.gameObject);
                 Destroy(second);
@@ -53,8 +54,15 @@ public class RewindInTime : MonoBehaviour
                 GetComponent<AudioSource>().Play();
             }
             else if(GetComponent<Rigidbody>() != null) rb.isKinematic = true;
-
-            if (isPlayer) Destroy(controller);
+            
+            if (isPlayer)
+            {
+                GetComponentInChildren<Animator>().gameObject.transform.parent = GetComponentInChildren<SecondCameraMove>().gameObject.transform;
+                GetComponentInChildren<Animator>().enabled = true;
+                GetComponentInChildren<RewindAnimation>().enabled = true;
+                Destroy(controller);
+                
+            }
 
             startRewind = true;
         }
@@ -88,7 +96,6 @@ public class RewindInTime : MonoBehaviour
         {
             startRewind = false;
             if (!isSecondCamera && GetComponent<Rigidbody>() != null) rb.isKinematic = false;
-            Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
