@@ -83,8 +83,7 @@ public class RewindInTime : MonoBehaviour
             color.postExposure.value += Time.fixedDeltaTime / speedColor;
         }
             
-        if (Time.timeScale <= 2.58f)
-            Time.timeScale += 0.02f;
+        Time.timeScale = 2.58f;
         if(_pointsInTime.Count > 0)
         {
             PointInTime pointInTime = _pointsInTime.First.Value;

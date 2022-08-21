@@ -6,7 +6,7 @@ using UnityEngine;
 public class RewindAnimation : MonoBehaviour
 {
     [HideInInspector] public LinkedList<SecondAndNameAnim> secondAndNames;
-    RewindInTime player;
+    [HideInInspector] public RewindInTime player;
     float timer;
     Animator animator;
     bool firstAnimation = true;
@@ -37,7 +37,7 @@ public class RewindAnimation : MonoBehaviour
                     previous = previous.Previous;
                 }
             }
-            timer += Time.deltaTime;
+            timer += Time.unscaledDeltaTime;
             Rewind();
         }
     }
@@ -51,7 +51,6 @@ public class RewindAnimation : MonoBehaviour
             if(timer >= seconds / Time.timeScale)
             {
                 animator.SetFloat("speed", -1);
-                
                 animator.Play(pointInTime.NameOfAnimation);
                 print(pointInTime.NameOfAnimation+" "+pointInTime.Seconds);
                 
