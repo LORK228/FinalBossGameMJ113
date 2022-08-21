@@ -16,6 +16,7 @@ public class Dodge: MonoBehaviour
     private Animator ArmSwing;
     private float timer;
     public float MaxTime;
+    [HideInInspector] public bool isAnim = false;
     [HideInInspector] public bool InAir;
     [HideInInspector] public bool dodge = false;
     [SerializeField] private Image DodgeTimer;
@@ -37,7 +38,7 @@ public class Dodge: MonoBehaviour
         timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0) && timer >= MaxTime)
         {
-            
+            isAnim = true;
             switch (Random.Range(0, 4)){
                 case 1:
                     {
