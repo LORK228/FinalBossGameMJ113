@@ -19,9 +19,11 @@ public class BossAIMover : MonoBehaviour
     private DateTime TimeWhenStartGame;
     private DateTime TimeWhenEndGame;
     private TimeManager killPlayer;
+    private Animator AnimAI;
 
     void Start()
     {
+        AnimAI = GetComponent<Animator>();
         TimeWhenStartGame = DateTime.Now;
         player = GameObject.Find("Player");
         navMeshBoss = GetComponent<NavMeshAgent>();
@@ -33,20 +35,8 @@ public class BossAIMover : MonoBehaviour
         {
             EndOfTheGame();
         }
-        if (Time.timeScale == 0 && Input.GetKeyDown(KeyCode.R))
-        {
-            Time.timeScale = 1;
-            GameOverText.SetActive(false);
-            GameOverTime.SetActive(false);
-            killPlayer.isDo = true;
-        }
-
         distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        if(distanceToPlayer >= _distantWhenRangedAttacks)
-        {
-            distantAttack();
-        }
-        navMeshBoss.SetDestination(player.transform.position);
+        AnimAI.SetFloat("Distance", distanceToPlayer);
     }
 
     private void EndOfTheGame()
