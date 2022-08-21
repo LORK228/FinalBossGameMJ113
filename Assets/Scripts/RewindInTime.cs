@@ -21,7 +21,7 @@ public class RewindInTime : MonoBehaviour
     private ColorGrading color;
 
 
-    [HideInInspector] public bool isdead { private get; set; }
+    [HideInInspector] public bool isdead { get; set; }
 
     private void Awake()
     {
@@ -35,6 +35,7 @@ public class RewindInTime : MonoBehaviour
         if (isSecondCamera) second = GetComponent<SecondCameraMove>();
         if (isPlayer) controller = GetComponent<RigidbodyFirstPersonController>();
         _pointsInTime = new LinkedList<PointInTime>();
+        if(GetComponent<Rigidbody>() != null)
         rb = GetComponent<Rigidbody>();
     }
 
@@ -51,7 +52,7 @@ public class RewindInTime : MonoBehaviour
                 GetComponent<AudioSource>().pitch = UnityEngine.Random.Range(0.9f,1);
                 GetComponent<AudioSource>().Play();
             }
-            else rb.isKinematic = true;
+            else if(GetComponent<Rigidbody>() != null) rb.isKinematic = true;
 
             if (isPlayer) Destroy(controller);
 
@@ -74,7 +75,7 @@ public class RewindInTime : MonoBehaviour
             color.postExposure.value += Time.fixedDeltaTime / speedColor;
         }
             
-        if (Time.timeScale <= 2.55f)
+        if (Time.timeScale <= 2.58f)
             Time.timeScale += 0.02f;
         if(_pointsInTime.Count > 0)
         {
@@ -86,7 +87,7 @@ public class RewindInTime : MonoBehaviour
         else
         {
             startRewind = false;
-            if (!isSecondCamera) rb.isKinematic = false;
+            if (!isSecondCamera && GetComponent<Rigidbody>() != null) rb.isKinematic = false;
             Time.timeScale = 1;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
