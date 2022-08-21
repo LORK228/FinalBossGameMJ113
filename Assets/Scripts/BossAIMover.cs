@@ -20,7 +20,7 @@ public class BossAIMover : MonoBehaviour
     private DateTime TimeWhenEndGame;
     private TimeManager killPlayer;
     private Animator AnimAI;
-
+    public int aggresion=0;
     void Start()
     {
         AnimAI = GetComponent<Animator>();
@@ -31,6 +31,8 @@ public class BossAIMover : MonoBehaviour
     }
     void Update()
     {
+        transform.LookAt(player.transform);
+        transform.position = new Vector3(transform.position.x, 1.9275f, transform.position.z);
         if(healValue <= 0 && Time.timeScale != 0 && killPlayer.isDo == false)
         {
             EndOfTheGame();
