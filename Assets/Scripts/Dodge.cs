@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Dodge: MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class Dodge: MonoBehaviour
     [HideInInspector] public bool dodge = false;
     [SerializeField] private Image DodgeTimer;
     [SerializeField] private float time;
-    
+    NavMeshAgent arwq;
     // Start is called before the first frame update
     void Start()
     {
